@@ -1,0 +1,808 @@
+/* ================================================================
+   Digtiali Stockpik – Frontend Design v2
+   ================================================================ */
+
+/* ---------- Root tokens ---------- */
+.stockpik-wrap {
+    --sp-purple: #7C3AED;
+    --sp-purple-mid: #9D5CF6;
+    --sp-purple-dark: #5B21B6;
+    --sp-purple-light: #EDE9FE;
+    --sp-purple-xlight: #F5F0FF;
+    --sp-green: #16A34A;
+    --sp-green-light: #DCFCE7;
+    --sp-amber: #92400E;
+    --sp-amber-light: #FEF3C7;
+    --sp-text: #111827;
+    --sp-text-muted: #6B7280;
+    --sp-border: #E9E3FF;
+    --sp-border-subtle: #F3F0FF;
+    --sp-card-bg: #FFFFFF;
+    --sp-radius: 16px;
+    --sp-radius-sm: 10px;
+    --sp-radius-xs: 8px;
+    --sp-shadow: 0 2px 16px rgba(124, 58, 237, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+
+    direction: rtl;
+    font-family: inherit;
+    margin-top: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ================================================================
+   Hero / Header card
+   ================================================================ */
+.stockpik-hero {
+    background: linear-gradient(135deg, #F5F0FF 0%, #EDE9FE 60%, #E4D9FD 100%);
+    border: 1px solid var(--sp-border);
+    border-radius: var(--sp-radius);
+    padding: 28px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.stockpik-hero::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 140px;
+    height: 140px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.stockpik-hero__lead {
+    flex: 1;
+    min-width: 0;
+}
+
+.stockpik-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--sp-text);
+    margin: 0 0 6px;
+    line-height: 1.3;
+}
+
+.stockpik-summary {
+    font-size: 14px;
+    color: var(--sp-text-muted);
+    margin: 0 0 14px;
+    line-height: 1.6;
+}
+
+.stockpik-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: var(--sp-green-light);
+    color: var(--sp-green);
+    border: 1px solid rgba(22, 163, 74, 0.2);
+}
+
+.stockpik-status--pending {
+    background: var(--sp-amber-light);
+    color: var(--sp-amber);
+    border-color: rgba(146, 64, 14, 0.2);
+}
+
+.stockpik-status__dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.stockpik-hero__avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 18px;
+    background: rgba(124, 58, 237, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--sp-purple);
+}
+
+/* ================================================================
+   Card base
+   ================================================================ */
+.stockpik-card {
+    background: var(--sp-card-bg);
+    border: 1px solid var(--sp-border);
+    border-radius: var(--sp-radius);
+    overflow: hidden;
+    box-shadow: var(--sp-shadow);
+}
+
+.stockpik-card__head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--sp-border-subtle);
+    background: #FAFAFA;
+}
+
+.stockpik-card__icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--sp-purple-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sp-purple);
+    flex-shrink: 0;
+}
+
+.stockpik-card__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--sp-text);
+    margin: 0;
+}
+
+.stockpik-card__body {
+    padding: 20px;
+}
+
+/* ================================================================
+   Account details rows
+   ================================================================ */
+.stockpik-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--sp-border-subtle);
+}
+
+.stockpik-row:last-of-type {
+    border-bottom: none;
+}
+
+.stockpik-row--stack {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.stockpik-row > p:empty {
+    display: none;
+    margin: 0;
+    padding: 0;
+}
+
+.stockpik-row--stack .stockpik-code,
+.stockpik-row--stack .stockpik-keyline {
+    box-sizing: border-box;
+}
+
+.stockpik-keyline--password {
+    direction: ltr;
+}
+
+.stockpik-label {
+    font-size: 13px;
+    color: var(--sp-text-muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+.stockpik-label svg {
+    flex-shrink: 0;
+    color: var(--sp-purple);
+}
+
+.stockpik-code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: var(--sp-text);
+    background: var(--sp-purple-xlight);
+    border: 1px solid var(--sp-border);
+    padding: 6px 12px;
+    border-radius: 8px;
+    word-break: break-all;
+    direction: ltr;
+    text-align: left;
+}
+
+.stockpik-code--url {
+    font-size: 12px;
+    color: var(--sp-text-muted);
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+/* ---------- Password field ---------- */
+.stockpik-password-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    background: var(--sp-purple-xlight);
+    border: 1px solid var(--sp-border);
+    border-radius: 10px;
+    padding: 6px 8px;
+    direction: ltr;
+}
+
+.stockpik-password-value {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: var(--sp-text);
+    flex: 1;
+    min-width: 0;
+    letter-spacing: 0.08em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.stockpik-toggle-password {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #fff;
+    color: var(--sp-purple);
+    border: 1px solid var(--sp-border);
+    border-radius: 7px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: inherit;
+}
+
+.stockpik-toggle-password:hover {
+    background: var(--sp-purple-light);
+}
+
+/* ---------- Copy button ---------- */
+.stockpik-copy {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--sp-purple-light);
+    color: var(--sp-purple);
+    border: 1px solid var(--sp-border);
+    border-radius: 8px;
+    padding: 7px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-family: inherit;
+    line-height: 1;
+}
+
+.stockpik-copy:hover {
+    background: var(--sp-purple);
+    color: #fff;
+    border-color: var(--sp-purple);
+}
+
+.stockpik-copy.copied {
+    background: var(--sp-green-light);
+    color: var(--sp-green);
+    border-color: rgba(22, 163, 74, 0.3);
+}
+
+/* ---------- Key row ---------- */
+.stockpik-keyline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    direction: ltr;
+}
+
+.stockpik-keyline .stockpik-code {
+    flex: 1;
+    min-width: 0;
+}
+
+/* ---------- Hint & hint box ---------- */
+.stockpik-hint {
+    font-size: 13px;
+    color: var(--sp-text-muted);
+    background: #F9F7FF;
+    border: 1px solid var(--sp-border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 12px 0 0;
+    line-height: 1.7;
+    width: fit-content;
+    max-width: min(100%, 34rem);
+}
+
+/* ---------- Panel link ---------- */
+.stockpik-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: var(--sp-purple);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 14px 0 2px;
+    margin-top: 8px;
+    border-top: 1px solid var(--sp-border-subtle);
+    transition: color 0.15s;
+}
+
+.stockpik-btn:hover {
+    color: var(--sp-purple-dark);
+    text-decoration: underline;
+}
+
+.stockpik-btn__icon {
+    flex-shrink: 0;
+}
+
+/* ================================================================
+   Services / Keys card
+   ================================================================ */
+.stockpik-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.stockpik-item {
+    display: flex;
+    gap: 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--sp-border-subtle);
+}
+
+.stockpik-item:first-child {
+    padding-top: 0;
+}
+
+.stockpik-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* Right side info (RTL: renders on right) */
+.stockpik-item__info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stockpik-service {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--sp-text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stockpik-service__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--sp-green);
+    flex-shrink: 0;
+    display: inline-block;
+}
+
+.stockpik-item__key {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stockpik-item__url {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--sp-text-muted);
+    direction: ltr;
+    text-align: left;
+}
+
+.stockpik-item__url svg {
+    flex-shrink: 0;
+    color: var(--sp-purple);
+}
+
+.stockpik-item__url-text {
+    color: var(--sp-text-muted);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    word-break: break-all;
+}
+
+/* Left side calendar (RTL: renders on left) */
+.stockpik-item__calendar {
+    width: 84px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    background: var(--sp-purple-xlight);
+    border: 1px solid var(--sp-border);
+    border-radius: 14px;
+    padding: 14px 8px;
+    text-align: center;
+    color: var(--sp-purple);
+}
+
+.stockpik-item__expiry {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--sp-purple);
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.stockpik-item__remaining {
+    font-size: 10px;
+    font-weight: 600;
+    background: #fff;
+    border: 1px solid var(--sp-border);
+    border-radius: 12px;
+    padding: 3px 7px;
+    color: var(--sp-purple);
+    white-space: nowrap;
+    line-height: 1.4;
+}
+
+/* ================================================================
+   Support footer
+   ================================================================ */
+.stockpik-support {
+    background: var(--sp-card-bg);
+    border: 1px solid var(--sp-border);
+    border-radius: var(--sp-radius);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: var(--sp-shadow);
+}
+
+.stockpik-support__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--sp-purple-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sp-purple);
+    flex-shrink: 0;
+}
+
+.stockpik-support__body {
+    flex: 1;
+    min-width: 0;
+}
+
+.stockpik-support__title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--sp-text);
+    margin: 0 0 2px;
+}
+
+.stockpik-support__sub {
+    font-size: 13px;
+    color: var(--sp-text-muted);
+    margin: 0;
+}
+
+.stockpik-support__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--sp-purple-light);
+    color: var(--sp-purple);
+    border: 1px solid var(--sp-border);
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+}
+
+.stockpik-support__btn:hover {
+    background: var(--sp-purple);
+    color: #fff;
+    border-color: var(--sp-purple);
+    text-decoration: none;
+}
+
+/* ================================================================
+   Legacy classes kept for backward compatibility
+   ================================================================ */
+.stockpik-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.stockpik-header {
+    background: linear-gradient(135deg, #F5F0FF 0%, #EDE9FE 100%);
+    border: 1px solid var(--sp-border);
+    border-radius: var(--sp-radius);
+    padding: 28px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.stockpik-eyebrow {
+    display: none;
+}
+
+/* ================================================================
+   Responsive
+   ================================================================ */
+@media (max-width: 640px) {
+    .stockpik-hero {
+        flex-wrap: wrap;
+    }
+
+    .stockpik-hero__avatar {
+        width: 68px;
+        height: 68px;
+        border-radius: 14px;
+        align-self: flex-start;
+    }
+
+    .stockpik-title {
+        font-size: 18px;
+    }
+
+    .stockpik-item {
+        flex-direction: column-reverse;
+    }
+
+    .stockpik-item__calendar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 10px 14px;
+        gap: 10px;
+        border-radius: 10px;
+    }
+
+    .stockpik-support {
+        flex-wrap: wrap;
+    }
+
+    .stockpik-support__btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stockpik-password-value {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stockpik-wrap {
+        gap: 12px;
+    }
+
+    .stockpik-hero,
+    .stockpik-card__body {
+        padding: 16px;
+    }
+
+    .stockpik-card__head {
+        padding: 14px 16px;
+    }
+}
+
+/* ================================================================
+   Dark mode (site default) — match My Account panel, fix contrast
+   Light mode: keep tokens/defaults above (no changes when data-theme="light")
+   ================================================================ */
+html:not([data-theme="light"]) .stockpik-wrap {
+    --sp-purple: #c36dff;
+    --sp-purple-mid: #b57aff;
+    --sp-purple-dark: #e8d4ff;
+    --sp-purple-light: rgba(160, 32, 232, 0.22);
+    --sp-purple-xlight: rgba(160, 32, 232, 0.1);
+    --sp-green: #6ee7a0;
+    --sp-green-light: rgba(110, 231, 160, 0.14);
+    --sp-amber: #fcd34d;
+    --sp-amber-light: rgba(252, 211, 77, 0.14);
+    --sp-text: #f3ecff;
+    --sp-text-muted: rgba(243, 236, 255, 0.72);
+    --sp-border: rgba(255, 255, 255, 0.07);
+    --sp-border-subtle: rgba(255, 255, 255, 0.05);
+    --sp-card-bg: transparent;
+    --sp-shadow: none;
+}
+
+html:not([data-theme="light"]) .stockpik-hero,
+html:not([data-theme="light"]) .stockpik-header {
+    background: transparent;
+    border-color: var(--sp-border);
+}
+
+html:not([data-theme="light"]) .stockpik-hero::after {
+    background: radial-gradient(circle, rgba(195, 109, 255, 0.18) 0%, transparent 70%);
+}
+
+html:not([data-theme="light"]) .stockpik-wrap .stockpik-title,
+html:not([data-theme="light"]) .woocommerce-account .stockpik-wrap h3.stockpik-title {
+    color: #fcf8ff !important;
+}
+
+html:not([data-theme="light"]) .stockpik-wrap .stockpik-summary,
+html:not([data-theme="light"]) .stockpik-wrap .stockpik-card__title,
+html:not([data-theme="light"]) .woocommerce-account .stockpik-wrap h4.stockpik-card__title {
+    color: var(--sp-text) !important;
+}
+
+html:not([data-theme="light"]) .stockpik-wrap .stockpik-summary {
+    color: var(--sp-text-muted) !important;
+}
+
+html:not([data-theme="light"]) .stockpik-hero__avatar {
+    background: rgba(160, 32, 232, 0.2);
+    color: #d59cff;
+}
+
+html:not([data-theme="light"]) .stockpik-card__head {
+    background: transparent;
+    border-bottom-color: var(--sp-border-subtle);
+}
+
+html:not([data-theme="light"]) .stockpik-code {
+    color: #f3ecff;
+    background: rgba(160, 32, 232, 0.12);
+    border-color: var(--sp-border);
+}
+
+html:not([data-theme="light"]) .stockpik-code--url {
+    color: var(--sp-text-muted);
+}
+
+html:not([data-theme="light"]) .stockpik-password-wrap {
+    background: rgba(160, 32, 232, 0.1);
+    border-color: var(--sp-border);
+}
+
+html:not([data-theme="light"]) .stockpik-password-value {
+    color: #f3ecff;
+}
+
+html:not([data-theme="light"]) .stockpik-toggle-password {
+    background: rgba(255, 255, 255, 0.06);
+    color: #d59cff;
+    border-color: var(--sp-border);
+}
+
+html:not([data-theme="light"]) .stockpik-toggle-password:hover {
+    background: rgba(160, 32, 232, 0.25);
+    color: #fff;
+}
+
+html:not([data-theme="light"]) .stockpik-copy {
+    background: rgba(160, 32, 232, 0.18);
+    color: #e0b0ff;
+    border-color: var(--sp-border);
+}
+
+html:not([data-theme="light"]) .stockpik-copy:hover {
+    background: var(--sp-purple);
+    color: #fff;
+    border-color: var(--sp-purple);
+}
+
+html:not([data-theme="light"]) .stockpik-hint {
+    color: var(--sp-text-muted);
+    background: rgba(160, 32, 232, 0.08);
+    border-color: var(--sp-border);
+}
+
+html:not([data-theme="light"]) .stockpik-btn {
+    color: #d59cff;
+    border-top-color: var(--sp-border-subtle);
+}
+
+html:not([data-theme="light"]) .stockpik-btn:hover {
+    color: #efccff;
+}
+
+html:not([data-theme="light"]) .stockpik-service {
+    color: var(--sp-text) !important;
+}
+
+html:not([data-theme="light"]) .stockpik-item__calendar {
+    background: rgba(160, 32, 232, 0.12);
+    border-color: var(--sp-border);
+    color: #d59cff;
+}
+
+html:not([data-theme="light"]) .stockpik-item__expiry,
+html:not([data-theme="light"]) .stockpik-item__remaining {
+    color: #e0b0ff;
+}
+
+html:not([data-theme="light"]) .stockpik-item__remaining {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--sp-border);
+}
+
+html:not([data-theme="light"]) .stockpik-support {
+    background: var(--sp-card-bg);
+    border-color: var(--sp-border);
+}
+
+html:not([data-theme="light"]) .stockpik-support__title {
+    color: var(--sp-text) !important;
+}
+
+html:not([data-theme="light"]) .stockpik-support__sub {
+    color: var(--sp-text-muted) !important;
+}
+
+html:not([data-theme="light"]) .stockpik-support__btn {
+    background: rgba(160, 32, 232, 0.18);
+    color: #e0b0ff;
+    border-color: var(--sp-border);
+}
+
+html:not([data-theme="light"]) .stockpik-support__btn:hover {
+    background: var(--sp-purple);
+    color: #fff;
+}
+
+/* Light mode: ensure account panel light text rules don't wash out Stockpik */
+html[data-theme="light"] .stockpik-wrap .stockpik-title,
+html[data-theme="light"] .woocommerce-account .stockpik-wrap h3.stockpik-title {
+    color: var(--sp-text) !important;
+}
+
+html[data-theme="light"] .stockpik-wrap .stockpik-summary {
+    color: var(--sp-text-muted) !important;
+}
+
+html[data-theme="light"] .stockpik-wrap .stockpik-card__title,
+html[data-theme="light"] .woocommerce-account .stockpik-wrap h4.stockpik-card__title {
+    color: var(--sp-text) !important;
+}
