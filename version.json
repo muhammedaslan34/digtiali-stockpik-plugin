@@ -1,0 +1,22 @@
+{
+    "slug": "digtiali-stockpik",
+    "name": "Digtiali Stockpik",
+    "version": "1.0.4",
+    "requires_php": "7.4",
+    "requires_wp": "6.0",
+    "released": "2026-07-18",
+    "commit": "",
+    "repository": "https://github.com/muhammedaslan34/digtiali-stockpik-plugin",
+    "manifest_url": "https://raw.githubusercontent.com/muhammedaslan34/digtiali-stockpik-plugin/main/version.json",
+    "download_url": "",
+    "changelog": [
+        {
+            "version": "1.0.4",
+            "date": "2026-07-18",
+            "changes": [
+                "Added remote version check via version.json",
+                "Admin Updates page matching Digtiali Core"
+            ]
+        }
+    ]
+}
