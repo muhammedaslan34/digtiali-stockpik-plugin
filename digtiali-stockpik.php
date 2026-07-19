@@ -6,6 +6,7 @@
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Digtiali
+ * Author URI: https://digtiali.com
  * Text Domain: digtiali-stockpik
  */
 
