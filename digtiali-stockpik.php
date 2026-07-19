@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Digtiali Stockpik
  * Description: Integrates WooCommerce orders with the Stockpik API and surfaces account activation details to customers.
- .0.5
+ * Version: 1.0.5
  * Requires at least: 6.9
  * Requires PHP: 7.4
  * Author: Digtiali
@@ -22,7 +22,7 @@ define('DIGTIALI_STOCKPIK_URL', plugin_dir_url(__FILE__));
  * Installed version — read from version.json when present.
  */
 function digtiali_stockpik_read_installed_version(): string {
-	.0.5'; // digtiali-stockpik version fallback
+	$fallback = '1.0.5'; // digtiali-stockpik version fallback
 	$path     = __DIR__ . '/version.json';
 	if ( ! is_readable( $path ) ) {
 		return $fallback;
